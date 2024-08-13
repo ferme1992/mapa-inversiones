@@ -1,4 +1,5 @@
 import { Box, Typography, Stack } from "@mui/material";
+import Events from "../../../components/Community/Events";
 
 export default function Community() {
   return (
@@ -21,6 +22,7 @@ export default function Community() {
           Construyendo juntos un futuro transparente
         </Typography>
       </Stack>
+      <Events />
     </Box>
   );
 }
