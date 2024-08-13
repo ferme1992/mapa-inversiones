@@ -2,6 +2,8 @@ import { Box, Typography, Stack } from "@mui/material";
 import Events from "../../../components/Community/Events";
 import Publications from "../../../components/Community/Publications";
 import Forum from "../../../components/Community/Forum";
+import Academia from "../../../components/Community/Academia";
+import Newsletter from "../../../components/Community/Newsletter";
 
 export default function Community() {
   return (
@@ -27,6 +29,8 @@ export default function Community() {
       <Events />
       <Publications />
       <Forum />
+      <Academia />
+      <Newsletter />
     </Box>
   );
 }
