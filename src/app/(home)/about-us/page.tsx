@@ -1,4 +1,7 @@
 import { Box, Typography, Stack } from "@mui/material";
+import MapaInvSteps from "../../../components/AboutUs/MapaInvSteps";
+import MapaInvCountries from "../../../components/AboutUs/MapaInvCountries";
+import TestimonialSlider from "../../../components/AboutUs/TestimonialSlider";
 
 export default function AboutUs() {
   return (
@@ -36,6 +39,9 @@ export default function AboutUs() {
           visualizan datos públicos.
         </Typography>
       </Box>
+      <MapaInvSteps />
+      <MapaInvCountries />
+      <TestimonialSlider />
     </Box>
   );
 }
