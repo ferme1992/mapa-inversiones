@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Box } from "@mui/material";
 import Providers from "./Providers";
 import Footer from "../components/Footer";
+import FloatingAiIcon from "../components/FloatingAiIcon";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <Providers>
           <Box>{children}</Box>
           <Footer />
+          <FloatingAiIcon />
         </Providers>
       </body>
     </html>
