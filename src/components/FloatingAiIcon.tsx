@@ -1,6 +1,5 @@
 import React from "react";
 import { Fab } from "@mui/material";
-import ChatIcon from "@mui/icons-material/Chat";
 
 const FloatingIcon = () => {
   return (
@@ -17,8 +16,8 @@ const FloatingIcon = () => {
       <img
         src="/assets/botI.svg"
         alt="Mapa Inversiones"
-        width={156}
-        height={156}
+        width={130}
+        height={130}
       />
     </Fab>
   );
