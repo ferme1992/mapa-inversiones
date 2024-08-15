@@ -44,8 +44,8 @@ function Footer() {
           <Image
             src="/assets/bid-logo.png"
             alt="BID Logo"
-            layout="fill"
-            objectFit="contain"
+            fill
+            style={{objectFit:"contain"}}
           />
         </Box>
       </Box>
