@@ -1,23 +1,30 @@
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-} from "@mui/material";
+import { FC } from "react";
+import { Card, CardContent, CardMedia, Typography, Link } from "@mui/material";
+import NextLink from "next/link";
 
-const ProjectCard = ({ image, price, title }) => {
+interface ProjectCardProps {
+  image: string;
+  cost: number;
+  title: string;
+  id: number;
+}
+
+const ProjectCard: FC<ProjectCardProps> = ({ image, cost, title, id }) => {
   return (
-    <Card>
+    <Card sx={{ maxWidth: "33%" }}>
       <CardMedia component="img" height="140" image={image} alt={title} />
       <CardContent>
         <Typography variant="h6" color="primary">
-          ${price.toLocaleString()}
+          ${cost.toLocaleString()}
         </Typography>
         <Typography variant="h5" component="div">
           {title}
         </Typography>
-        <Button>Ver más</Button>
+        <Link href={`/country/works-and-projects/${id}`} component={NextLink}>
+          <Typography fontSize={14} fontWeight={500}>
+            Ver Más
+          </Typography>
+        </Link>
       </CardContent>
     </Card>
   );

@@ -1,11 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { FC, useState } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import ProjectCard from "./ProjectCard";
+import { IProject } from "@/types/Project";
 
-const RelatedProjects = ({ projects, itemsToShow = 3 }) => {
+interface IRelatedProjectsProps {
+  projects: IProject[];
+  itemsToShow?: number;
+}
+
+const RelatedProjects: FC<IRelatedProjectsProps> = ({
+  projects,
+  itemsToShow = 3,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -23,8 +32,8 @@ const RelatedProjects = ({ projects, itemsToShow = 3 }) => {
   };
 
   return (
-    <Box>
-      <Typography variant="h4" gutterBottom>
+    <Box my={4}>
+      <Typography variant="h4" gutterBottom ml={2}>
         Proyectos relacionados
       </Typography>
       <Box display="flex" alignItems="center">
@@ -35,7 +44,13 @@ const RelatedProjects = ({ projects, itemsToShow = 3 }) => {
           {projects
             .slice(currentIndex, currentIndex + itemsToShow)
             .map((project, index) => (
-              <ProjectCard key={index} {...project} />
+              <ProjectCard
+                key={index}
+                image="/assets/project-photo-example.png"
+                cost={project.CostoEstimadoProyecto}
+                title={project.NombreProyecto}
+                id={project.IdProyecto}
+              />
             ))}
         </Box>
         <IconButton

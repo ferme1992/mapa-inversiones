@@ -1,9 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { FC } from "react";
 import { Box, Typography, Tab, Tabs, Grid } from "@mui/material";
+import { IProject } from "@/types/Project";
 
-const ProjectTabs = () => {
+interface IProjectTabs {
+  project: IProject;
+}
+
+const ProjectTabs: FC<IProjectTabs> = ({ project }) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -11,8 +16,8 @@ const ProjectTabs = () => {
   };
 
   return (
-    <Box py={2} sx={{ bgcolor: "#f1f1f1" }}>
-      <Box maxWidth={1200} mx="auto">
+    <Box py={4} sx={{ bgcolor: "#f1f1f1" }}>
+      <Box justifyContent="center" px={4}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -24,36 +29,17 @@ const ProjectTabs = () => {
           <Tab label="Información general y etapas" />
           <Tab label="Contratista" />
           <Tab label="Info. socioeconómica" />
-          <Tab label="ODS" />
+          <Tab label="Objetivos de desarrollo sostenible" />
         </Tabs>
       </Box>
-      <Box mt={2} maxWidth={1200} mx="auto">
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="body2" color="text.secondary">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="body2" color="text.secondary">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="body2" color="text.secondary">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-          </Grid>
-        </Grid>
+      <Box justifyContent="center" p={4}>
+        <Typography variant="body2" color="text.secondary">
+          Sistema de abastecimiento de agua potable que contempla el
+          mejoramiento del entorno ambiental a través de procedimientos de
+          capacitación específicos y trabaja por gravedad. Sus principales
+          componentes son: Obra de toma, Linea de aducción, Planta de
+          tratamiento, Depósito regulador y Equipamiento.
+        </Typography>
       </Box>
     </Box>
   );
