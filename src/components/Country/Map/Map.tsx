@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Map, { Source, Layer, Marker } from "react-map-gl";
+import Map, { Source, Layer } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import {
   clusterLayer,
@@ -63,10 +63,10 @@ export default function MapComponent({ locations }) {
   };
 
   return (
-    <div style={{ height: "100vh", width: "85%" }}>
+    <div style={{ height: "90vh", width: "85%" }}>
       <Map
         {...viewport}
-        mapStyle="mapbox://styles/mapbox/streets-v11"
+        mapStyle="mapbox://styles/mapbox/streets-v12"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         onMove={(evt) => handleViewportChange(evt.viewState)}
         interactiveLayerIds={[clusterLayer.id]}
