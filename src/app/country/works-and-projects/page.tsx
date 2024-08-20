@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Box, Typography, Container } from "@mui/material";
 import FilterSearch from "@/components/Country/WorksAndProjects/FilterSearch";
 import dynamic from "next/dynamic";
+import ProjectsTable from "@/components/Country/WorksAndProjects/ProjectsTable";
 
 const Map = dynamic(() => import("../../../components/Country/Map/Map"), {
   loading: () => "Loading...",
@@ -249,7 +250,7 @@ const WorksAndProjects = () => {
             gutterBottom
             fontWeight="bold"
           >
-            Proyectos y obras públicas
+            Mapa de proyectos
           </Typography>
           <Typography variant="body1" paragraph>
             Accede a información detallada y actualizada sobre la ejecución de
@@ -271,6 +272,15 @@ const WorksAndProjects = () => {
         my={10}
       >
         <Map locations={locations} />
+      </Box>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        mx={20}
+        my={10}
+      >
+        <ProjectsTable />
       </Box>
     </Box>
   );
