@@ -1,77 +1,47 @@
-import {
-  Box,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  CardActions,
-  Button,
-} from "@mui/material";
+import React from "react";
+import { Grid, Typography, Container } from "@mui/material";
+import EventCard from "../Home/EventCard";
 
-function MeetCommunity() {
-  const cards = [
-    {
-      action: "Action",
-      header: "Card Header",
-      subheader: "Card Subheader",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
-    },
-    {
-      action: "Action",
-      header: "Card Header",
-      subheader: "Card Subheader",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
-    },
-    {
-      action: "Action",
-      header: "Card Header",
-      subheader: "Card Subheader",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
-    },
-  ];
+const events = [
+  {
+    date: "1 AGO | 10:00 HS",
+    title: "Foro Internacional de Transparencia y Gestión Pública",
+    organizer: "BID TEAM ORGANIZADOR",
+    type: "CHARLA",
+    description:
+      "Únete a líderes y expertos de todo el mundo en un foro dedicado a la transparencia y la gestión eficiente de los recursos públicos.",
+  },
+  {
+    date: "1 AGO | 10:00 HS",
+    title: "Foro Internacional de Transparencia y Gestión Pública",
+    organizer: "BID TEAM ORGANIZADOR",
+    type: "CHARLA",
+    description:
+      "Únete a líderes y expertos de todo el mundo en un foro dedicado a la transparencia y la gestión eficiente de los recursos públicos.",
+  },
+  {
+    date: "1 AGO | 10:00 HS",
+    title: "Participación ciudadana y control social",
+    organizer: "",
+    type: "CURSO",
+    description:
+      "Explora las mejores prácticas y estrategias para fomentar la participación ciudadana en la fiscalización del gasto público.",
+  },
+];
 
+export default function MeetCommunity() {
   return (
-    <Box py={7} px={20}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Conoce nuestra comunidad
+    <Container sx={{ py: 10 }}>
+      <Typography fontWeight={700} fontSize={28} gutterBottom>
+        Conoce nuestra comunidad internacional
       </Typography>
       <Grid container spacing={3}>
-        {cards.map((card, index) => (
-          <Grid item xs={12} md={4} key={index}>
-            <Card>
-              <Box
-                height={100}
-                sx={{
-                  background:
-                    "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-                }}
-              />
-              <CardContent>
-                <Typography color="text.secondary" gutterBottom>
-                  {card.action}
-                </Typography>
-                <Typography variant="h5" component="div">
-                  {card.header}
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  {card.subheader}
-                </Typography>
-                <Typography variant="body2">{card.content}</Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small" variant="contained" color="primary">
-                  Save
-                </Button>
-              </CardActions>
-            </Card>
+        {events.map((event, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
+            <EventCard event={event} />
           </Grid>
         ))}
       </Grid>
-    </Box>
+    </Container>
   );
 }
-
-export default MeetCommunity;

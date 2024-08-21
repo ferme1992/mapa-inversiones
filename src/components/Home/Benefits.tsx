@@ -1,5 +1,4 @@
 import { Box, Typography, Grid, Paper, Stack } from "@mui/material";
-import TargetAudience from "./TargetAudience";
 
 function Benefits() {
   const benefits = [
@@ -28,7 +27,6 @@ function Benefits() {
   return (
     <Box display="flex" justifyContent="center" alignItems="center" px={20}>
       <Stack p={4} spacing={2}>
-        <TargetAudience />
         <Typography variant="h5" gutterBottom>
           Beneficios de tener MapaInversiones en tu país
         </Typography>

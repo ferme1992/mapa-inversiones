@@ -8,6 +8,7 @@ import {
   Button,
   InputBase,
   SelectChangeEvent,
+  Stack,
 } from "@mui/material";
 import { styled } from "@mui/system";
 
@@ -49,44 +50,47 @@ const QuestionBar: FC<QuestionBarProps> = ({ backGroundColor }) => {
 
   return (
     <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        gap: 2,
-        backgroundColor: backGroundColor,
-      }}
+      bgcolor={backGroundColor}
+      minHeight={144}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
     >
-      <StyledSelect
-        value={profile}
-        onChange={handleProfileChange}
-        displayEmpty
-        renderValue={profile !== "" ? undefined : () => "Selecciona tu perfil"}
-      >
-        <MenuItem value="">Selecciona tu perfil</MenuItem>
-        <MenuItem value="ciudadano">Ciudadano</MenuItem>
-        <MenuItem value="funcionario">Funcionario</MenuItem>
-      </StyledSelect>
-      <Box sx={{ flexGrow: 1, display: "flex", gap: 1 }}>
-        <StyledTextField
-          placeholder="Hazme una pregunta"
-          value={question}
-          onChange={handleQuestionChange}
-          fullWidth
-        />
-        <Button
-          variant="contained"
-          onClick={handleSubmit}
-          sx={{
-            backgroundColor: "white",
-            color: "black",
-            "&:hover": {
-              backgroundColor: "#f0f0f0",
-            },
-          }}
+      <Stack direction="row" gap={2} mx={22} width='100%'>
+        <StyledSelect
+          value={profile}
+          onChange={handleProfileChange}
+          displayEmpty
+          renderValue={
+            profile !== "" ? undefined : () => "Selecciona tu perfil"
+          }
         >
-          Enviar
-        </Button>
-      </Box>
+          <MenuItem value="">Selecciona tu perfil</MenuItem>
+          <MenuItem value="ciudadano">Ciudadano</MenuItem>
+          <MenuItem value="funcionario">Funcionario</MenuItem>
+        </StyledSelect>
+        <Box flexGrow={1} display="flex">
+          <StyledTextField
+            placeholder="Hazme una pregunta"
+            value={question}
+            onChange={handleQuestionChange}
+            fullWidth
+          />
+          <Button
+            variant="contained"
+            onClick={handleSubmit}
+            sx={{
+              backgroundColor: "white",
+              color: "black",
+              "&:hover": {
+                backgroundColor: "#f0f0f0",
+              },
+            }}
+          >
+            Enviar
+          </Button>
+        </Box>
+      </Stack>
     </Box>
   );
 };
