@@ -25,6 +25,9 @@ function NavBar() {
           <Button color="inherit">
             <Typography>Comparación Internacional</Typography>
           </Button>
+          <Button color="inherit">
+            <Typography>Datos Abiertos</Typography>
+          </Button>
           <Link href="/community" component={NextLink}>
             <Typography>Comunidad</Typography>
           </Link>

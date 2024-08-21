@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import Navbar from "../../components/Country/Navbar";
+import CountryFooter from "@/components/Country/CountryFooter";
 
 export default function HomeLayout({
   children,
@@ -10,6 +11,7 @@ export default function HomeLayout({
     <>
       <Navbar />
       <Box>{children}</Box>
+      <CountryFooter />
     </>
   );
 }

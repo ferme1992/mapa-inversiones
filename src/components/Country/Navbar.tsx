@@ -3,14 +3,15 @@ import { AppBar, Toolbar, Box, Button, Typography, Link } from "@mui/material";
 
 function NavBar() {
   return (
-    <AppBar position="static" color="default">
-      <Toolbar>
+    <AppBar
+      position="static"
+      color="default"
+      sx={{ minHeight: 175, display: "flex", justifyContent: "center" }}
+    >
+      <Toolbar sx={{ display: "flex", alignItems: "center" }}>
         <Box display="flex" flexGrow={1}>
           <Link href="/" component={NextLink}>
-            <img
-              src="/assets/mapa-inversiones-header.svg"
-              alt="Mapa Inversiones"
-            />
+            <img src="/assets/logo-gobierno.svg" alt="Mapa Inversiones" />
           </Link>
         </Box>
         <Box
@@ -22,17 +23,17 @@ function NavBar() {
           <Link href="/country/about-us" component={NextLink}>
             <Typography>Nosotros</Typography>
           </Link>
-          <Link href="/country/works-and-projects" component={NextLink}>
+          <Link href="/country/project-map" component={NextLink}>
             <Typography>Proyectos y obras públicas</Typography>
           </Link>
           <Link href="/country/datos-abiertos" component={NextLink}>
             <Typography>Datos abiertos</Typography>
           </Link>
-          <Link href="/country/canales-ayuda" component={NextLink}>
-            <Typography>Canales de ayuda</Typography>
+          <Link href="/country/community" component={NextLink}>
+            <Typography>Comunidad</Typography>
           </Link>
           <Button variant="contained" color="primary">
-            <Typography>Participa</Typography>
+            <Typography>Participación ciudadana</Typography>
           </Button>
         </Box>
       </Toolbar>
