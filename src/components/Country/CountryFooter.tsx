@@ -1,26 +1,28 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
+import Image from "next/image";
 
 const CountryFooter = () => {
   return (
     <Box
       component="footer"
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "1rem",
-        backgroundColor: "#0B3866",
-        color: "white",
-      }}
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      padding="1rem"
+      bgcolor="#0B3866"
+      color="white"
+      minHeight={193}
+      px={20}
     >
-      <Typography variant="body2" component="div">
-        <img
-          src="assets/logo-gobierno.svg"
-          alt="Logo"
-          style={{ height: "40px" }}
+      <Box width={165} height={67} position="relative">
+        <Image
+          src="/assets/logo-gobierno-footer.png"
+          alt="government Logo"
+          fill
+          style={{ objectFit: "contain" }}
         />
-      </Typography>
+      </Box>
       <Box>
         <Button color="inherit">Canales de ayuda</Button>
         <Button color="inherit">Términos y condiciones</Button>

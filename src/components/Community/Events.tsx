@@ -34,7 +34,7 @@ function Events() {
   ];
 
   return (
-    <Box p={4}>
+    <Box px={20} py={8}>
       <Typography variant="h4" pb={2} mb={2} gutterBottom>
         Charlas
       </Typography>

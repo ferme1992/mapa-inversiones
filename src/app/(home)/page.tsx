@@ -3,8 +3,7 @@ import Hero from "../../components/Hero";
 import CarouselIndicator from "../../components/CarrouselIndicator";
 import TransparencySection from "../../components/Home/TransparencySection";
 import QuestionBar from "../../components/QuestionBar";
-import Benefits from "../../components/Home/Benefits";
-import ImageTextSection from "../../components/Home/ImageTextSection";
+import VideoSection from "../../components/Home/VideoSection";
 import MeetCommunitySection from "../../components/Home/MeetCommunity";
 import TargetAudience from "@/components/Home/TargetAudience";
 
@@ -16,7 +15,7 @@ export default function Home() {
       <TransparencySection />
       <QuestionBar backGroundColor="#00bcd4" />
       <TargetAudience />
-      <ImageTextSection />
+      <VideoSection />
       <MeetCommunitySection />
     </Box>
   );

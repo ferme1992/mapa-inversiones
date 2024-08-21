@@ -30,12 +30,24 @@ const MapaInversionesSteps = () => {
           </Button>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Box sx={{ position: "relative", height: 0, paddingTop: "56.25%" }}>
-            <Image
-              src="/assets/video-example.png"
-              alt="10 pasos para la implementación de MapaInversiones"
-              layout="fill"
-              objectFit="cover"
+          <Box
+            position="relative"
+            width="100%"
+            height="300px"
+            sx={{ overflow: "hidden", paddingTop: "56.25%" }}
+          >
+            <iframe
+              src="https://www.youtube.com/embed/qrBMYAHCFus"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
+              title="MapaInversiones video"
             />
           </Box>
         </Grid>

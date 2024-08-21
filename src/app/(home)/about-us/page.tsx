@@ -21,7 +21,7 @@ export default function AboutUs() {
           Nosotros
         </Typography>
         <Typography fontWeight={400} fontSize="28px">
-          Construyendo juntos un futuro transparente
+          Transparencia e integridad en el uso de los recursos públicos.
         </Typography>
       </Stack>
       <Box
@@ -31,6 +31,7 @@ export default function AboutUs() {
         py={4}
         px={20}
         minHeight={272}
+        bgcolor={"#FFFFFF"}
       >
         <Typography fontWeight={400} fontSize="20px">
           MapaInversiones es una iniciativa del BID que impulsa la transparencia

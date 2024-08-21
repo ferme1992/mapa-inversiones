@@ -1,6 +1,6 @@
 import { Box, Typography, Grid } from "@mui/material";
 
-function ImageTextSection() {
+function ImageVideoSection() {
   return (
     <Box px={20} py={10} bgcolor={"#f5f5f5"}>
       <Grid container spacing={4} alignItems="center">
@@ -13,7 +13,6 @@ function ImageTextSection() {
           >
             <iframe
               src="https://www.youtube.com/embed/qrBMYAHCFus"
-              frameBorder="0"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               style={{
@@ -24,7 +23,7 @@ function ImageTextSection() {
                 height: "100%",
               }}
               title="MapaInversiones video"
-            ></iframe>
+            />
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -44,4 +43,4 @@ function ImageTextSection() {
   );
 }
 
-export default ImageTextSection;
+export default ImageVideoSection;

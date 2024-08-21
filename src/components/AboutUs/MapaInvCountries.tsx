@@ -4,16 +4,16 @@ import NextLink from "next/link";
 
 const MapaInvCountries = () => {
   const countries = Array(6).fill({
-    name: "Argentina",
-    url: "mapainversiones.obraspublicas.gob.ar",
+    name: "Republica Dominicana",
+    url: "mapainversiones.economia.gob.do/",
     year: "2018",
-    flag: "/assets/argentina-flag.png",
+    flag: "/assets/dominican-republic-flag.png",
   });
 
   return (
     <Card sx={{ px: 18, py: 7 }}>
       <CardContent>
-        <Typography variant="h5" gutterBottom>
+        <Typography fontWeight={700} fontSize="28px" gutterBottom mb={3}>
           Países que ya implementaron MapaInversiones
         </Typography>
         <Grid container spacing={2}>

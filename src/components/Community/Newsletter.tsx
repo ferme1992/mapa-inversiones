@@ -2,12 +2,11 @@ import { Box, Typography, TextField, Button, Chip, Grid } from "@mui/material";
 
 function Newsletter() {
   return (
-    <Box p={4} sx={{ backgroundColor: "#f0f8ff" }}>
+    <Box px={20} py={8} bgcolor="#f0f8ff">
       <Grid container spacing={4} alignItems="center">
         <Grid item xs={12} md={6}>
           <Typography variant="h4" gutterBottom>
-            Inscríbite a nuestro boletín y enterate de los próximos cursos y
-            eventos
+            Inscríbete a nuestro boletín y entérate de los temas de tu interés
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>

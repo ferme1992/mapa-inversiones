@@ -4,10 +4,21 @@ import Image from "next/image";
 
 const Publications = () => {
   return (
-    <Box sx={{ bgcolor: "#f5f5f5", p: 4 }}>
-      <Grid container spacing={4} alignItems="center">
+    <Box px={20} py={8} bgcolor="#EFF4F7">
+      <Grid container spacing={8} alignItems="center">
+        <Grid item xs={12} md={5}>
+          <Paper elevation={3} sx={{ p: 2, maxWidth: 300, ml: "auto" }}>
+            <Image
+              src="/assets/publication-cover.png"
+              alt="Publication cover"
+              width={300}
+              height={400}
+              fill
+            />
+          </Paper>
+        </Grid>
         <Grid item xs={12} md={7}>
-          <Typography variant="h4" gutterBottom>
+          <Typography fontWeight={700} fontSize={36} gutterBottom>
             Publicaciones
           </Typography>
           <Typography variant="h5" gutterBottom>
@@ -22,24 +33,25 @@ const Publications = () => {
           </Typography>
           <Button
             variant="contained"
+            color="primary"
             sx={{
-              bgcolor: "#6c757d",
+              mr: 2,
+              bgcolor: "#004E70",
               "&:hover": { bgcolor: "#5a6268" },
             }}
           >
             Ver artículo
           </Button>
-        </Grid>
-        <Grid item xs={12} md={5}>
-          <Paper elevation={3} sx={{ p: 2, maxWidth: 300, ml: "auto" }}>
-            <Image
-              src="/assets/publication-cover.png"
-              alt="Publication cover"
-              width={300}
-              height={400}
-              layout="responsive"
-            />
-          </Paper>
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{
+              bgcolor: "#EFF4F7",
+              "&:hover": { bgcolor: "#5a6268" },
+            }}
+          >
+            Ver otras publicaciones
+          </Button>
         </Grid>
       </Grid>
     </Box>
