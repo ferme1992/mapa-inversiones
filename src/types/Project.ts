@@ -26,4 +26,5 @@ export interface IProject {
   nombremunicipio: string;
   fechacarguearchivo: string | Date;
   fuentedatos?: string;
+  ObjetivoGeneral?: string;
 }
