@@ -8,6 +8,7 @@ import Indicators from "../../components/Country/Indicators";
 import ExploreProjects from "../../components/Country/ExploreProjects";
 import InstitutionBudgets from "../../components/Country/InstitutionsBudgets";
 import CommunityEvents from "../../components/Country/CommunityEvents";
+import Participate from "@/components/Country/Participate";
 
 export default function Country() {
   return (
@@ -18,6 +19,7 @@ export default function Country() {
       <Indicators />
       <ExploreProjects />
       <InstitutionBudgets />
+      <Participate />
       <CommunityEvents />
     </Box>
   );
