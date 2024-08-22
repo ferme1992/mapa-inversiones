@@ -1,72 +1,123 @@
 "use client";
 
-import React, { useState } from "react";
-import {
-  Box,
-  Card,
-  CardContent,
-  Typography,
-  Avatar,
-  IconButton,
-} from "@mui/material";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import React, { FC, useState } from "react";
+import { Box, Typography, Avatar, IconButton } from "@mui/material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const testimonials = [
   {
-    image: "/assets/avatar-example.png",
-    text: "Lorem ipsum dolor sit amet consectetur. Venenatis dolor scelerisque id auctor hendrerit urna fringilla proin.",
-    author: "Pellentesque vel ut sollicitudin elit sollicitudin elit",
+    text: "La capacidad de comparar los gastos públicos entre diferentes países en MapaInversiones me ha permitido obtener una perspectiva más global.",
+    name: "Jorge González",
+    position: "Estudiante de Economía",
+    avatar: "/assets/avatar-1.png",
   },
   {
-    image: "/assets/avatar-example.png",
-    text: "2Lorem ipsum dolor sit amet consectetur. Venenatis dolor scelerisque id auctor hendrerit urna fringilla proin.",
-    author: "2Pellentesque vel ut sollicitudin elit sollicitudin elit",
+    text: "MapaInversiones facilita el seguimiento de las inversiones en salud. Ahora estoy más informada que nunca.",
+    name: "Lucía Pérez",
+    position: "Activista de Salud",
+    avatar: "/assets/avatar-2.png",
+  },
+  {
+    text: "Como investigador, MapaInversiones ha sido una herramienta invaluable para analizar los datos de gasto público.",
+    name: "Carlos Rodríguez",
+    position: "Analista de Políticas Públicas",
+    avatar: "/assets/avatar-3.png",
+  },
+  {
+    text: "MapaInversiones me ha permitido entender mejor las inversiones públicas en mi comunidad.",
+    name: "Ana Martínez",
+    position: "Líder Comunitaria",
+    avatar: "/assets/avatar-1.png",
   },
 ];
 
-const TestimonialSlider = () => {
+const TestimonialSlider: FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const testimonialsPerSlide = 3;
+  const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : testimonials.length - 1
+      prevIndex === 0 ? totalSlides - 1 : prevIndex - 1
     );
   };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex < testimonials.length - 1 ? prevIndex + 1 : 0
+      prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
     );
   };
 
+  const currentTestimonials = testimonials.slice(
+    currentIndex * testimonialsPerSlide,
+    currentIndex * testimonialsPerSlide + testimonialsPerSlide
+  );
+
   return (
-    <Box px={20} py={7} width="100%" position="relative">
-      <Typography variant="h4" gutterBottom>
-        Testimonios
-      </Typography>
-      <Card sx={{ display: "flex", alignItems: "center", p: 2 }}>
-        <IconButton onClick={handlePrev} sx={{ position: "absolute", left: 0 }}>
-          <ChevronLeft />
-        </IconButton>
-        <CardContent sx={{ textAlign: "center", maxWidth: 600, mx: "auto" }}>
-          <Avatar
-            src={testimonials[currentIndex].image}
-            sx={{ width: 80, height: 80, mx: "auto", mb: 2 }}
-          />
-          <Typography variant="body1" paragraph>
-            {testimonials[currentIndex].text}
-          </Typography>
-          <Typography variant="subtitle2" color="text.secondary">
-            {testimonials[currentIndex].author}
-          </Typography>
-        </CardContent>
-        <IconButton
-          onClick={handleNext}
-          sx={{ position: "absolute", right: 0 }}
-        >
-          <ChevronRight />
-        </IconButton>
-      </Card>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      position="relative"
+      padding="20px 0"
+    >
+      <IconButton
+        onClick={handlePrev}
+        sx={{
+          left: "0",
+          position: "absolute",
+          top: "50%",
+          transform: "translateY(-50%)",
+          zIndex: 1,
+        }}
+      >
+        <ArrowBackIos />
+      </IconButton>
+      <Box display="flex" justifyContent="center" gap="20px">
+        {currentTestimonials.map((testimonial, index) => (
+          <Box
+            key={index}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            textAlign="center"
+            padding="20px"
+            maxWidth="300px"
+            margin="0 10px"
+            boxShadow="0 4px 8px rgba(0, 0, 0, 0.1)"
+            borderRadius="8px"
+            bgcolor="#fff"
+          >
+            <Avatar
+              src={testimonial.avatar}
+              alt={testimonial.name}
+              sx={{ height: "85px", width: "85px" }}
+            />
+            <Typography variant="body1" fontStyle="italic" margin="20px 0">
+              {testimonial.text}
+            </Typography>
+            <Typography variant="h6" fontWeight="bold" marginTop="10px">
+              {testimonial.name}
+            </Typography>
+            <Typography variant="subtitle2" color="gray">
+              {testimonial.position}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+      <IconButton
+        onClick={handleNext}
+        sx={{
+          right: "0",
+          position: "absolute",
+          top: "50%",
+          transform: "translateY(-50%)",
+          zIndex: 1,
+        }}
+      >
+        <ArrowForwardIos />
+      </IconButton>
     </Box>
   );
 };
