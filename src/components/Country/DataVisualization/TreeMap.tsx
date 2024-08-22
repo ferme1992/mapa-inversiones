@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Box } from "@mui/material";
 import { Chart } from "react-google-charts";
@@ -14,18 +12,21 @@ const options = {
 };
 
 function summarizeBySector(dataArray: IProject[]) {
-  const sectorSummary = {};
+  const sectorSummary: { [sector: string]: { [etapa: string]: number } } = {};
 
   dataArray.forEach((item) => {
     const sector = item.Sector;
-    const executedValue = item.valorejecutado;
+    const etapa = item.EtapaActual;
 
     if (!sectorSummary[sector]) {
-      sectorSummary[sector] = { totalExecuted: 0, projectCount: 0 };
+      sectorSummary[sector] = {};
     }
 
-    sectorSummary[sector].totalExecuted += executedValue;
-    sectorSummary[sector].projectCount += 1;
+    if (!sectorSummary[sector][etapa]) {
+      sectorSummary[sector][etapa] = 0;
+    }
+
+    sectorSummary[sector][etapa] += 1;
   });
 
   return sectorSummary;
@@ -37,16 +38,20 @@ const TreeMap = () => {
   const summarizedData = summarizeBySector(projectData);
 
   const data = [
-    ["Location", "Parent", "Valor Total de proyectos", "Cantidad de Proyectos"],
-    ["Sectores", null, 0, 0],
-    ...Object.entries(summarizedData).map(
-      ([sector, { totalExecuted, projectCount }]) => [
+    ["Location", "Parent", "Cantidad de Proyectos"],
+    ["Sectores", null, 0],
+    ...Object.entries(summarizedData).flatMap(([sector, etapas]) => [
+      [
         sector,
         "Sectores",
-        totalExecuted,
+        Object.values(etapas).reduce((acc, count) => acc + count, 0),
+      ],
+      ...Object.entries(etapas).map(([etapa, projectCount]) => [
+        `${sector} - ${etapa} - ${projectCount}`,
+        sector,
         projectCount,
-      ]
-    ),
+      ]),
+    ]),
   ];
 
   return (

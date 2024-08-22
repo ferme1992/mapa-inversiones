@@ -23,25 +23,6 @@ function TabPanel(props: any) {
   );
 }
 
-export const data = [
-  ["Location", "Parent", "Presupuesto", "Market increase/decrease (color)"],
-  ["Sectores", null, 0, 0],
-  ["Educación", "Sectores", 200, 200],
-  ["Vivienda y Servicios Comunitarios", "Sectores", 100, 100],
-  ["Protección del aire agua y suelo", "Sectores", 50, 50],
-  ["Transporte", "Sectores", 50, 50],
-  ["Administración General", "Sectores", 20, 20],
-];
-
-export const options = {
-  minColor: "#f00",
-  midColor: "#ddd",
-  maxColor: "#0d0",
-  headerHeight: 15,
-  fontColor: "black",
-  showScale: true,
-};
-
 const DataVisualization = () => {
   const [tabValue, setTabValue] = React.useState(0);
 
