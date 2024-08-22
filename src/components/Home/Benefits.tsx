@@ -27,7 +27,7 @@ function Benefits() {
   return (
     <Box display="flex" justifyContent="center" alignItems="center" px={20}>
       <Stack p={4} spacing={2}>
-        <Typography variant="h5" gutterBottom>
+        <Typography fontSize={28} fontWeight={700} gutterBottom>
           Beneficios de tener MapaInversiones en tu país
         </Typography>
         <Grid container spacing={0}>
@@ -43,7 +43,7 @@ function Benefits() {
                   backgroundColor: index % 2 === 0 ? "#D7E0E5" : "#f0f8ff",
                 }}
               >
-                <Typography variant="h6" gutterBottom>
+                <Typography fontWeight={700} fontSize={24} gutterBottom>
                   {benefit.title}
                 </Typography>
                 <Typography variant="body2">{benefit.description}</Typography>

@@ -2,6 +2,7 @@ import { Box, Typography, Stack } from "@mui/material";
 import MapaInvSteps from "../../../components/AboutUs/MapaInvSteps";
 import MapaInvCountries from "../../../components/AboutUs/MapaInvCountries";
 import TestimonialSlider from "../../../components/AboutUs/TestimonialSlider";
+import Benefits from "@/components/Home/Benefits";
 
 export default function AboutUs() {
   return (
@@ -40,6 +41,7 @@ export default function AboutUs() {
           visualizan datos públicos.
         </Typography>
       </Box>
+      <Benefits />
       <MapaInvSteps />
       <MapaInvCountries />
       <TestimonialSlider />
