@@ -26,6 +26,7 @@ const events = [
     type: "CURSO",
     description:
       "Explora las mejores prácticas y estrategias para fomentar la participación ciudadana en la fiscalización del gasto público.",
+    image: "/assets/course.png",
   },
 ];
 

@@ -5,14 +5,16 @@ import {
   Typography,
   Button,
   CardActions,
+  CardMedia,
 } from "@mui/material";
 
 interface Event {
-  date: string;
   title: string;
-  organizer: string;
   type: string;
+  date?: string;
   description: string;
+  organizer?: string;
+  image?: string;
 }
 
 interface EventCardProps {
@@ -22,6 +24,13 @@ interface EventCardProps {
 const EventCard: FC<EventCardProps> = ({ event }) => {
   return (
     <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+      {event.image && (
+        <CardMedia
+          sx={{ height: 172 }}
+          image={event.image}
+          title={event.title}
+        />
+      )}
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography variant="subtitle2" color="textSecondary">
           {event.date}
@@ -48,7 +57,7 @@ const EventCard: FC<EventCardProps> = ({ event }) => {
         }}
       >
         <Button size="small" variant="contained" color="primary" sx={{ mb: 1 }}>
-          ¡Quiero participar!
+          {event.type === "CURSO" ? "Anotarme" : "¡Quiero participar!"}
         </Button>
         <Button size="small" color="secondary">
           Compartir

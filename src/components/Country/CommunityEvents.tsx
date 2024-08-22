@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  Grid,
-  Card,
-  CardContent,
-  CardActions,
-  Typography,
-  Button,
-  Box,
-} from "@mui/material";
-import Image from "next/image";
+import { Grid, Typography, Box } from "@mui/material";
+import EventCard from "../Home/EventCard";
 
 const CommunityEvents = () => {
   const events = [
@@ -34,7 +26,7 @@ const CommunityEvents = () => {
       description:
         "Explora las mejores prácticas y estrategias para fomentar la participación ciudadana en la fiscalización del gasto público.",
       action: "Anotarme",
-      image: "/path-to-your-image.jpg",
+      image: "/assets/course.png",
     },
   ];
 
@@ -45,43 +37,8 @@ const CommunityEvents = () => {
       </Typography>
       <Grid container spacing={3}>
         {events.map((event, index) => (
-          <Grid item xs={12} md={4} key={index}>
-            <Card>
-              <CardContent>
-                {event.date && (
-                  <Typography variant="subtitle2" color="text.secondary">
-                    {event.date}
-                  </Typography>
-                )}
-                <Typography variant="h6" component="div" gutterBottom>
-                  {event.title}
-                </Typography>
-                <Typography variant="overline" display="block" gutterBottom>
-                  {event.type}
-                </Typography>
-                {event.image && (
-                  <Box height={200} position="relative" mb={2}>
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </Box>
-                )}
-                <Typography variant="body2" color="text.secondary">
-                  {event.description}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button variant="outlined" fullWidth>
-                  {event.action}
-                </Button>
-              </CardActions>
-              <CardActions>
-                <Button size="small">Compartir</Button>
-              </CardActions>
-            </Card>
+          <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
+            <EventCard event={event} />
           </Grid>
         ))}
       </Grid>

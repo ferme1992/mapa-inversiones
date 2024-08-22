@@ -6,7 +6,9 @@ import {
   Button,
   Chip,
   Stack,
+  IconButton,
 } from "@mui/material";
+import { ArrowForward } from "@mui/icons-material";
 
 function Events() {
   const events = [
@@ -35,9 +37,17 @@ function Events() {
 
   return (
     <Box px={20} py={8}>
-      <Typography variant="h4" pb={2} mb={2} gutterBottom>
-        Charlas
-      </Typography>
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography variant="h4" pb={2} mb={2} gutterBottom>
+          Charlas
+        </Typography>
+        <IconButton color="primary">
+          <Typography variant="button" sx={{ mr: 1 }}>
+            Ver todos
+          </Typography>
+          <ArrowForward />
+        </IconButton>
+      </Stack>
       <Typography variant="subtitle1" gutterBottom sx={{ mb: 4 }}>
         Únete a nuestros eventos para explorar las últimas tendencias en
         transparencia y gestión pública.
