@@ -5,7 +5,7 @@ function Hero() {
     <Box
       sx={{
         position: "relative",
-        height: "80vh",
+        height: {xs: "80vh", md: "100vh"},
         display: "flex",
         alignItems: "center",
         backgroundImage: `url(/assets/hero_section.jpeg)`,
@@ -24,7 +24,11 @@ function Hero() {
         }}
       />
       <Box position="relative" color="white" padding="0 4rem" maxWidth="800px">
-        <Typography variant="h3" component="h1" gutterBottom>
+        <Typography
+          fontSize={{ xs: "18px", md: "40px" }}
+          fontWeight={700}
+          gutterBottom
+        >
           Impulsamos la transparencia del gasto, las inversiones y las
           contrataciones públicas en América Latina y el Caribe
         </Typography>

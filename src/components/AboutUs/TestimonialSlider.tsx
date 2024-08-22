@@ -3,6 +3,8 @@
 import React, { FC, useState } from "react";
 import { Box, Typography, Avatar, IconButton } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const testimonials = [
   {
@@ -34,6 +36,9 @@ const testimonials = [
 const TestimonialSlider: FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+
   const testimonialsPerSlide = 3;
   const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide);
 
@@ -49,10 +54,12 @@ const TestimonialSlider: FC = () => {
     );
   };
 
-  const currentTestimonials = testimonials.slice(
-    currentIndex * testimonialsPerSlide,
-    currentIndex * testimonialsPerSlide + testimonialsPerSlide
-  );
+  const currentTestimonials = isMdUp
+    ? testimonials.slice(
+        currentIndex * testimonialsPerSlide,
+        currentIndex * testimonialsPerSlide + testimonialsPerSlide
+      )
+    : testimonials;
 
   return (
     <Box
@@ -61,20 +68,36 @@ const TestimonialSlider: FC = () => {
       justifyContent="center"
       position="relative"
       padding="20px 0"
+      overflow="hidden"
     >
-      <IconButton
-        onClick={handlePrev}
+      {isMdUp && (
+        <IconButton
+          onClick={handlePrev}
+          sx={{
+            left: "0",
+            position: "absolute",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+          }}
+        >
+          <ArrowBackIos />
+        </IconButton>
+      )}
+      <Box
+        display="flex"
+        justifyContent={isMdUp ? "center" : "flex-start"}
+        gap="20px"
+        overflow={isMdUp ? "visible" : "auto"}
+        width={isMdUp ? "auto" : "100%"}
         sx={{
-          left: "0",
-          position: "absolute",
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 1,
+          scrollSnapType: isMdUp ? "none" : "x mandatory",
+          "& > div": {
+            scrollSnapAlign: isMdUp ? "unset" : "center",
+            minWidth: isMdUp ? "auto" : "300px",
+          },
         }}
       >
-        <ArrowBackIos />
-      </IconButton>
-      <Box display="flex" justifyContent="center" gap="20px">
         {currentTestimonials.map((testimonial, index) => (
           <Box
             key={index}
@@ -84,7 +107,7 @@ const TestimonialSlider: FC = () => {
             textAlign="center"
             padding="20px"
             maxWidth="300px"
-            margin="0 10px"
+            margin={isMdUp ? "0 10px" : "0"}
             boxShadow="0 4px 8px rgba(0, 0, 0, 0.1)"
             borderRadius="8px"
             bgcolor="#fff"
@@ -106,18 +129,20 @@ const TestimonialSlider: FC = () => {
           </Box>
         ))}
       </Box>
-      <IconButton
-        onClick={handleNext}
-        sx={{
-          right: "0",
-          position: "absolute",
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 1,
-        }}
-      >
-        <ArrowForwardIos />
-      </IconButton>
+      {isMdUp && (
+        <IconButton
+          onClick={handleNext}
+          sx={{
+            right: "0",
+            position: "absolute",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+          }}
+        >
+          <ArrowForwardIos />
+        </IconButton>
+      )}
     </Box>
   );
 };

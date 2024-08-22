@@ -1,10 +1,9 @@
 import React from "react";
 import { Box, Typography, Button, Grid } from "@mui/material";
-import Image from "next/image";
 
 const MapaInversionesSteps = () => {
   return (
-    <Box sx={{ bgcolor: "#f5f5f5", py: 7 }}>
+    <Box sx={{ bgcolor: "#EFF4F7", py: 7 }}>
       <Grid container spacing={4} alignItems="center" px={20}>
         <Grid item xs={12} md={6}>
           <Typography variant="h4" gutterBottom>

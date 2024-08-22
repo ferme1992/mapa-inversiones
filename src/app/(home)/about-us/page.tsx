@@ -15,7 +15,7 @@ export default function AboutUs() {
         color="white"
         fontSize={40}
         fontWeight="bold"
-        px={20}
+        px={{ xs: 8, lg: 20 }}
         bgcolor={"#234F6A"}
       >
         <Typography fontWeight={700} fontSize="40px">
@@ -30,7 +30,7 @@ export default function AboutUs() {
         justifyContent="center"
         alignItems="center"
         py={4}
-        px={20}
+        px={{ xs: 8, lg: 20 }}
         minHeight={272}
         bgcolor={"#FFFFFF"}
       >

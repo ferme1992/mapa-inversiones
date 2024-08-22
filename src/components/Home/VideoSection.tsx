@@ -2,7 +2,7 @@ import { Box, Typography, Grid } from "@mui/material";
 
 function ImageVideoSection() {
   return (
-    <Box px={20} py={10} bgcolor={"#f5f5f5"}>
+    <Box px={{ xs: 6, lg: 20 }} py={10} bgcolor={"#f5f5f5"}>
       <Grid container spacing={4} alignItems="center">
         <Grid item xs={12} md={6}>
           <Box

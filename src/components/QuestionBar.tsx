@@ -56,7 +56,12 @@ const QuestionBar: FC<QuestionBarProps> = ({ backGroundColor }) => {
       justifyContent="center"
       alignItems="center"
     >
-      <Stack direction="row" gap={2} mx={22} width='100%'>
+      <Stack
+        direction={{ xs: "column", md: "row" }}
+        gap={2}
+        mx={{ xs: 8, md: 22 }}
+        width="100%"
+      >
         <StyledSelect
           value={profile}
           onChange={handleProfileChange}

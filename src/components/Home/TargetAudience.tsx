@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Typography,
@@ -5,32 +7,42 @@ import {
   ListItem,
   ListItemText,
   Stack,
+  useMediaQuery,
 } from "@mui/material";
 import Image from "next/image";
+import { useTheme } from "@mui/material/styles";
+
+const audiences = [
+  {
+    title: "Los ciudadanos",
+    description:
+      "Permite monitorear en tiempo real dónde y cómo invierten los gobiernos.",
+  },
+  {
+    title: "Los Gobiernos /  Agencias multilaterales",
+    description:
+      "Cuentan con información de calidad para poder tomar decisiones que mejoren la eficiencia de las inversiones.",
+  },
+  {
+    title: "El sector privado",
+    description:
+      "Puede mejorar su competitividad al actuar en un entorno de información abierta.",
+  },
+  {
+    title: "Los periodistas",
+    description:
+      "Pueden crear historias periodísticas usando los datos abiertos.",
+  },
+];
 
 function TargetAudience() {
-  const audiences = [
-    {
-      title: "Los ciudadanos",
-      description:
-        "Permite monitorear en tiempo real dónde y cómo invierten los gobiernos.",
-    },
-    {
-      title: "Los Gobiernos /  Agencias multilaterales",
-      description:
-        "Cuentan con información de calidad para poder tomar decisiones que mejoren la eficiencia de las inversiones.",
-    },
-    {
-      title: "El sector privado",
-      description:
-        "Puede mejorar su competitividad al actuar en un entorno de información abierta.",
-    },
-    {
-      title: "Los periodistas",
-      description:
-        "Pueden crear historias periodísticas usando los datos abiertos.",
-    },
-  ];
+  const theme = useTheme();
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
+
+  // Render the component only if the screen size is lg or larger
+  if (!isLgUp) {
+    return null;
+  }
 
   return (
     <Box

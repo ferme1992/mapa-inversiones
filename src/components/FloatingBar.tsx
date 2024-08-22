@@ -2,11 +2,12 @@
 
 import React from "react";
 import { styled } from "@mui/material/styles";
-import { IconButton, Box } from "@mui/material";
+import { IconButton, useMediaQuery } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/FacebookOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import AccessibilityIcon from "@mui/icons-material/SettingsAccessibilityOutlined";
+import { useTheme } from "@mui/material/styles";
 
 const FloatingBarContainer = styled("div")(({ theme }) => ({
   position: "fixed",
@@ -37,6 +38,14 @@ const AccessibilityIconButton = styled(IconButton)({
 });
 
 const FloatingBar = () => {
+  const theme = useTheme();
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
+
+  // Render the component only if the screen size is lg or larger
+  if (!isLgUp) {
+    return null;
+  }
+
   return (
     <FloatingBarContainer>
       <StyledIconButton aria-label="Instagram">

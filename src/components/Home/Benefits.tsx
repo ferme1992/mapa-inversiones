@@ -1,28 +1,39 @@
-import { Box, Typography, Grid, Paper, Stack } from "@mui/material";
+"use client";
+
+import { Box, Typography, Grid, Paper, Stack, useTheme } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
+
+const benefits = [
+  {
+    title: "Inmediatez",
+    description:
+      "Permitimos acceder a información inmediata y abierta en un formato unificado e intuitivo para los diferentes usuarios.",
+  },
+  {
+    title: "Conocimiento",
+    description:
+      "Facilitamos el acceso a la información sobre la gestión de los recursos públicos para promover el control social y debate público.",
+  },
+  {
+    title: "Transparencia",
+    description:
+      "La implementación de MapaInversiones mejora el cumplimiento de los estándares internacionales de Transparencia (OCP, EITI, CoST).",
+  },
+  {
+    title: "Flexibilidad",
+    description:
+      "Cada país decide en qué sector implementar la plataforma de acuerdo a sus necesidades, recursos y prioridades.",
+  },
+];
 
 function Benefits() {
-  const benefits = [
-    {
-      title: "Inmediatez",
-      description:
-        "Permitimos acceder a información inmediata y abierta en un formato unificado e intuitivo para los diferentes usuarios.",
-    },
-    {
-      title: "Conocimiento",
-      description:
-        "Facilitamos el acceso a la información sobre la gestión de los recursos públicos para promover el control social y debate público.",
-    },
-    {
-      title: "Transparencia",
-      description:
-        "La implementación de MapaInversiones mejora el cumplimiento de los estándares internacionales de Transparencia (OCP, EITI, CoST).",
-    },
-    {
-      title: "Flexibilidad",
-      description:
-        "Cada país decide en qué sector implementar la plataforma de acuerdo a sus necesidades, recursos y prioridades.",
-    },
-  ];
+  const theme = useTheme();
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
+
+  // Render the component only if the screen size is lg or larger
+  if (!isLgUp) {
+    return null;
+  }
 
   return (
     <Box display="flex" justifyContent="center" alignItems="center" px={20}>
