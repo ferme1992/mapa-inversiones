@@ -1,91 +1,52 @@
-import {
-  Box,
-  Typography,
-  Grid,
-  Avatar,
-  Card,
-  CardContent,
-  CardActions,
-  IconButton,
-} from "@mui/material";
-import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import React from "react";
+import { Container, Box, Typography, Button, Divider } from "@mui/material";
 
-function Forum() {
-  const forumTopics = [
-    {
-      title: "Transparencia en la gestión pública",
-      author: "Luciana Parra",
-      role: "BID TEAM",
-      content:
-        "Discute y comparte ideas sobre cómo mejorar la transparencia en la administración pública. Abordaremos políticas actuales, iniciativas futuras efectivas y exploraremos herramientas innovadoras para fomentar una mayor rendición de cuentas.",
-      likes: 2,
-      comments: 1,
-    },
-    {
-      title: "Innovación en el análisis de datos públicos",
-      author: "Luciana Parra",
-      role: "BID TEAM",
-      content:
-        "Explora las últimas tendencias y técnicas en el análisis de datos gubernamentales. Comparte tus experiencias con herramientas de visualización de datos, análisis predictivo y el uso de datos abiertos para mejorar la toma de decisiones públicas.",
-      likes: 3,
-      comments: 3,
-    },
-    {
-      title: "Participación ciudadana y control social",
-      author: "Luciana Parra",
-      role: "BID TEAM",
-      content:
-        "Debate sobre las mejores prácticas para involucrar a la ciudadanía en la fiscalización del gasto público. Compartir estrategias exitosas para aumentar la participación ciudadana y fortalecer el control social en los proyectos de inversión pública.",
-      likes: 3,
-      comments: 3,
-    },
-  ];
-
+const Forum = () => {
   return (
-    <Box p={4}>
-      <Typography variant="h4" gutterBottom>
-        Foro
-      </Typography>
-      <Typography variant="subtitle1" paragraph>
-        Únete a la conversación con expertos y ciudadanos interesados en mejorar
-        la gestión pública.
-      </Typography>
-      <Grid container spacing={3}>
-        {forumTopics.map((topic, index) => (
-          <Grid item xs={12} md={4} key={index}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>
-                  {topic.title}
-                </Typography>
-                <Box display="flex" alignItems="center" mb={2}>
-                  <Avatar sx={{ width: 24, height: 24, mr: 1 }}>LP</Avatar>
-                  <Typography variant="subtitle2">{topic.author}</Typography>
-                  <Typography variant="caption" sx={{ ml: 1 }}>
-                    {topic.role}
-                  </Typography>
-                </Box>
-                <Typography variant="body2" color="text.secondary">
-                  {topic.content}
-                </Typography>
-              </CardContent>
-              <CardActions disableSpacing>
-                <IconButton aria-label="like">
-                  <ThumbUpOutlinedIcon />
-                </IconButton>
-                <Typography variant="caption">{topic.likes}</Typography>
-                <IconButton aria-label="comment">
-                  <ChatBubbleOutlineOutlinedIcon />
-                </IconButton>
-                <Typography variant="caption">{topic.comments}</Typography>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+    <Container maxWidth="md">
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        padding={6}
+      >
+        <Typography variant="h4" gutterBottom>
+          Foro
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          Conecta, comparte y colabora en un espacio donde tu voz mejora la
+          transparencia en la gestión pública.
+        </Typography>
+        <Box width="100%" mt={4}>
+          <Box mb={2}>
+            <Typography variant="subtitle1" gutterBottom>
+              ¿Cómo puedo monitorear las inversiones públicas en mi región?
+            </Typography>
+            <Divider />
+          </Box>
+          <Box mb={2}>
+            <Typography variant="subtitle1" gutterBottom>
+              ¿Qué lecciones podemos aprender de otros países sobre la gestión
+              de recursos públicos?
+            </Typography>
+            <Divider />
+          </Box>
+          <Box mb={4}>
+            <Typography variant="subtitle1" gutterBottom>
+              ¿Qué estrategias pueden aumentar la eficiencia del gasto público
+              en educación?
+            </Typography>
+          </Box>
+          <Box display="flex" justifyContent="center">
+            <Button variant="contained" color="primary">
+              Únete a la conversación
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+    </Container>
   );
-}
+};
 
 export default Forum;
