@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import Providers from "./Providers";
 import Footer from "../components/Footer";
 import FloatingAiIcon from "../components/FloatingAiIcon";
+import FloatingBar from "@/components/FloatingBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Providers>
           <Box>{children}</Box>
           <Footer />
+          <FloatingBar />
           <FloatingAiIcon />
         </Providers>
       </body>
