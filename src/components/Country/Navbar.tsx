@@ -1,7 +1,29 @@
+"use client";
+
+import React, { useState } from "react";
 import NextLink from "next/link";
-import { AppBar, Toolbar, Box, Button, Typography, Link } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  Typography,
+  Link,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 
 function NavBar() {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <AppBar
       position="static"
@@ -23,9 +45,31 @@ function NavBar() {
           <Link href="/country/about-us" component={NextLink}>
             <Typography>Nosotros</Typography>
           </Link>
-          <Link href="/country/project-map" component={NextLink}>
-            <Typography>Proyectos y obras públicas</Typography>
-          </Link>
+          <Box>
+            <Typography onClick={handleClick} sx={{ cursor: "pointer" }}>
+              Proyectos y obras públicas
+            </Typography>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem
+                onClick={handleClose}
+                component={NextLink}
+                href="/country/works-and-projects"
+              >
+                Menú de Proyectos
+              </MenuItem>
+              <MenuItem
+                onClick={handleClose}
+                component={NextLink}
+                href="/country/works-and-projects/data-visualization"
+              >
+                Visualizador de Datos
+              </MenuItem>
+            </Menu>
+          </Box>
           <Link href="/country/datos-abiertos" component={NextLink}>
             <Typography>Datos abiertos</Typography>
           </Link>
