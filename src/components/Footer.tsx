@@ -8,7 +8,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <Box component="footer" bgcolor="#003366" color="white" py={3} px={7}>
+    <Box component="footer" bgcolor="#003366" color="white" py={3} px={20}>
       <Box
         display="flex"
         justifyContent="space-between"

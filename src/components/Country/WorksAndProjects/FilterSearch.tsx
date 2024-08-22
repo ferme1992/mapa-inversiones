@@ -22,9 +22,9 @@ const FilterSearch = () => {
   ];
 
   return (
-    <Box p={3}>
+    <Box px={20} py={8}>
       <Typography variant="h5" gutterBottom>
-        Búsqueda por filtros
+        Búsqueda de proyectos
       </Typography>
       <Grid container spacing={2}>
         {filters.map((filter) => (

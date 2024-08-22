@@ -34,11 +34,7 @@ const ProjectTabs: FC<IProjectTabs> = ({ project }) => {
       </Box>
       <Box justifyContent="center" p={4}>
         <Typography variant="body2" color="text.secondary">
-          Sistema de abastecimiento de agua potable que contempla el
-          mejoramiento del entorno ambiental a través de procedimientos de
-          capacitación específicos y trabaja por gravedad. Sus principales
-          componentes son: Obra de toma, Linea de aducción, Planta de
-          tratamiento, Depósito regulador y Equipamiento.
+          {project?.ObjetivoGeneral}
         </Typography>
       </Box>
     </Box>

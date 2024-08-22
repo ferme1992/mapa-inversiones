@@ -8,7 +8,7 @@ function NavBar() {
       color="default"
       sx={{ minHeight: 175, display: "flex", justifyContent: "center" }}
     >
-      <Toolbar sx={{ display: "flex", alignItems: "center" }}>
+      <Toolbar sx={{ display: "flex", alignItems: "center", mx: 20 }}>
         <Box display="flex" flexGrow={1}>
           <Link href="/" component={NextLink}>
             <img src="/assets/logo-gobierno.svg" alt="Mapa Inversiones" />

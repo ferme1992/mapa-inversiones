@@ -13,7 +13,6 @@ const Publications = () => {
               alt="Publication cover"
               width={300}
               height={400}
-              fill
             />
           </Paper>
         </Grid>
