@@ -8,6 +8,7 @@ El objetivo de este proyecto es modernizar la interfaz de usuario (UI) de la pla
 - **PDF de Diseños de Figma**: [Enlace a Figma](https://drive.google.com/file/d/13duixelXYRHblADUhW1X07fstYkEeKsR/view?usp=sharing)
 - **Wireframe de Figma**: [Enlace a Figma](https://www.figma.com/design/OrjVKkSBhYvFzb1OUD3Prt/Wireframes?node-id=0-1&t=GtrrzapkgYaIsxUR-1)
 - **Presentation**: [Enlace a la presentación] (añadir enlace aquí)
+- **BID Planteamiento del Problema**: [Enlace a planteamiento del problema](https://idb-air-techsprint.vercel.app/problem-statements/planteamiento-del-problema-2)
 
 ## Guía de Instalación
 
