@@ -8,7 +8,7 @@ function Hero() {
         height: {xs: "80vh", md: "100vh"},
         display: "flex",
         alignItems: "center",
-        backgroundImage: `url(/assets/hero_section.jpeg)`,
+        backgroundImage: `url(/assets/hero-section.jpeg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

@@ -77,7 +77,7 @@ function TargetAudience() {
             ))}
           </List>
           <Image
-            src={"/assets/audience_section.png"}
+            src={"/assets/audience-section.png"}
             alt={`Audience section`}
             height={330}
             width={517}
