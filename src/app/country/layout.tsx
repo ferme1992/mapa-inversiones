@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import Navbar from "../../components/Country/Navbar";
 import CountryFooter from "@/components/Country/CountryFooter";
+import { ProjectProvider } from "./ProjectContext";
 
 export default function HomeLayout({
   children,
@@ -10,7 +11,9 @@ export default function HomeLayout({
   return (
     <>
       <Navbar />
-      <Box>{children}</Box>
+      <ProjectProvider>
+        <Box>{children}</Box>
+      </ProjectProvider>
       <CountryFooter />
     </>
   );

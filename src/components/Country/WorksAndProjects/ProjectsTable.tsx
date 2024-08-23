@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import {
   Table,
   TableBody,
@@ -14,14 +14,16 @@ import {
 import { IProject } from "../../../types/Project";
 import NextLink from "next/link";
 
-const projectData: IProject[] = require("../../../mockData/dominican-republic-data.json");
+interface ProjectTableProps {
+  projects: IProject[];
+}
 
-const ProjectTable: React.FC = () => {
+const ProjectTable: FC<ProjectTableProps> = ({ projects }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   // Calculate the data slice for the current page
-  const paginatedData = projectData.slice(
+  const paginatedData = projects.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
@@ -63,7 +65,7 @@ const ProjectTable: React.FC = () => {
                 >
                   <Typography fontSize={14} fontWeight={500}>
                     {project.NombreProyecto}
-                  </Typography> 
+                  </Typography>
                 </Link>
               </TableCell>
               <TableCell>{project.entidadejecutora}</TableCell>
@@ -75,7 +77,7 @@ const ProjectTable: React.FC = () => {
       </Table>
       <TablePagination
         component="div"
-        count={projectData.length}
+        count={projects.length}
         page={page}
         onPageChange={handleChangePage}
         rowsPerPage={rowsPerPage}
