@@ -89,7 +89,7 @@ const FilterSearch: FC<FilterSearchProps> = ({
                 defaultValue=""
               >
                 <MenuItem value="">
-                  <em>None</em>
+                  <em>Ninguno</em>
                 </MenuItem>
                 {filter.options.map((option) => (
                   <MenuItem key={option} value={option}>
