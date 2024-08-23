@@ -2,9 +2,10 @@
 
 import React from "react";
 import { Box, Typography, Container, Tabs, Tab } from "@mui/material";
-import ColumnChart from "@/components/Country/DataVisualization/ColumnChart";
+import BudgetChart from "@/components/Country/DataVisualization/BudgetChart";
 import TreeMap from "@/components/Country/DataVisualization/TreeMap";
 import PieChart from "@/components/Country/DataVisualization/PieChart";
+import { useProjects } from "../../ProjectContext";
 
 // TabPanel component to render content conditionally
 function TabPanel(props: any) {
@@ -18,13 +19,18 @@ function TabPanel(props: any) {
       aria-labelledby={`tab-${index}`}
       {...other}
     >
-      {value === index && <Box p={3}>{children}</Box>}
+      {value === index && (
+        <Container>
+          <Box p={3}>{children}</Box>
+        </Container>
+      )}
     </div>
   );
 }
 
 const DataVisualization = () => {
   const [tabValue, setTabValue] = React.useState(0);
+  const projects = useProjects();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
@@ -39,10 +45,11 @@ const DataVisualization = () => {
             component="h1"
             gutterBottom
             fontWeight="bold"
+            align="center"
           >
             Visualizador de datos
           </Typography>
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" paragraph align="center">
             Accede a información detallada y actualizada sobre la ejecución de
             obras públicas en tu región y a nivel nacional. Nuestro portal te
             permite seguir de cerca cada proyecto,
@@ -53,7 +60,7 @@ const DataVisualization = () => {
           </Typography>
         </Container>
       </Box>
-      <Box maxWidth={1200} mx="auto">
+      <Box sx={{ maxWidth: 1200, mx: "auto", mt: 4 }}>
         <Tabs
           value={tabValue}
           onChange={handleChange}
@@ -61,17 +68,6 @@ const DataVisualization = () => {
           textColor="primary"
           variant="fullWidth"
           centered
-          sx={{
-            "& .MuiTab-root": {
-              textTransform: "none",
-              fontWeight: "bold",
-              fontSize: "1.1rem",
-            },
-            "& .MuiTabs-indicator": {
-              height: "4px",
-              backgroundColor: "#0a4d68",
-            },
-          }}
         >
           <Tab label="Sectores" />
           <Tab label="Estados" />
@@ -79,13 +75,13 @@ const DataVisualization = () => {
         </Tabs>
       </Box>
       <TabPanel value={tabValue} index={0}>
-        <TreeMap />
+        <TreeMap projects={projects} />
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        <PieChart />
+        <PieChart projects={projects} />
       </TabPanel>
       <TabPanel value={tabValue} index={2}>
-        <ColumnChart />
+        <BudgetChart projects={projects} />
       </TabPanel>
     </Box>
   );

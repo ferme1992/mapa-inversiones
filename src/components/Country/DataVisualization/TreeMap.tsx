@@ -1,7 +1,11 @@
-import React from "react";
+import React, { FC, useMemo } from "react";
 import { Box } from "@mui/material";
 import { Chart } from "react-google-charts";
 import { IProject } from "@/types/Project";
+
+interface TreeMapProps {
+  projects: IProject[];
+}
 
 const options = {
   minColor: "#f00",
@@ -11,33 +15,21 @@ const options = {
   fontColor: "black",
 };
 
-function summarizeBySector(dataArray: IProject[]) {
-  const sectorSummary: { [sector: string]: { [etapa: string]: number } } = {};
-
-  dataArray.forEach((item) => {
-    const sector = item.Sector;
-    const etapa = item.EtapaActual;
-
-    if (!sectorSummary[sector]) {
-      sectorSummary[sector] = {};
+// Function to summarize projects by sector and stage
+function summarizeBySector(projects: IProject[]): { [sector: string]: { [etapa: string]: number } } {
+  return projects.reduce((acc, project) => {
+    const { Sector, EtapaActual } = project;
+    if (!acc[Sector]) {
+      acc[Sector] = {};
     }
-
-    if (!sectorSummary[sector][etapa]) {
-      sectorSummary[sector][etapa] = 0;
-    }
-
-    sectorSummary[sector][etapa] += 1;
-  });
-
-  return sectorSummary;
+    acc[Sector][EtapaActual] = (acc[Sector][EtapaActual] || 0) + 1;
+    return acc;
+  }, {} as { [sector: string]: { [etapa: string]: number } });
 }
 
-const TreeMap = () => {
-  const projectData: IProject[] = require("../../../mockData/dominican-republic-data.json");
-
-  const summarizedData = summarizeBySector(projectData);
-
-  const data = [
+// Function to convert summarized data into the format required by the TreeMap chart
+function formatData(summarizedData: { [sector: string]: { [etapa: string]: number } }) {
+  return [
     ["Location", "Parent", "Cantidad de Proyectos"],
     ["Sectores", null, 0],
     ...Object.entries(summarizedData).flatMap(([sector, etapas]) => [
@@ -47,19 +39,24 @@ const TreeMap = () => {
         Object.values(etapas).reduce((acc, count) => acc + count, 0),
       ],
       ...Object.entries(etapas).map(([etapa, projectCount]) => [
-        `${sector} - ${etapa} - ${projectCount}`,
+        `${sector} - ${etapa}`,
         sector,
         projectCount,
       ]),
     ]),
   ];
+}
+
+const TreeMap: FC<TreeMapProps> = ({ projects }) => {
+  const summarizedData = useMemo(() => summarizeBySector(projects), [projects]);
+  const data = useMemo(() => formatData(summarizedData), [summarizedData]);
 
   return (
     <Box display="flex" justifyContent="center">
       <Chart
         chartType="TreeMap"
-        width="80%"
-        height="800px"
+        width="100%"
+        height="600px"
         data={data}
         options={options}
       />
