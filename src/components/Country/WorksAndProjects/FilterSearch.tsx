@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { FC, useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -7,9 +9,36 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  SelectChangeEvent,
 } from "@mui/material";
+import { IProject } from "@/types/Project";
 
-const FilterSearch = () => {
+interface FilterSearchProps {
+  projects: IProject[];
+  setFilteredProjects: React.Dispatch<React.SetStateAction<IProject[]>>;
+}
+
+const FilterSearch: FC<FilterSearchProps> = ({
+  projects,
+  setFilteredProjects,
+}) => {
+  const [estadoFilter, setEstadoFilter] = useState<string>("");
+
+  useEffect(() => {
+    if (estadoFilter) {
+      const filtered = projects.filter(
+        (project) => project.EtapaActual === estadoFilter
+      );
+      setFilteredProjects(filtered);
+    } else {
+      setFilteredProjects(projects);
+    }
+  }, [estadoFilter, projects, setFilteredProjects]);
+
+  const handleEstadoChange = (event: SelectChangeEvent<string>) => {
+    setEstadoFilter(event.target.value as string);
+  };
+
   const filters = [
     { name: "Tipología", options: ["Option 1", "Option 2", "Option 3"] },
     { name: "Categoría", options: ["Category 1", "Category 2", "Category 3"] },
@@ -17,7 +46,7 @@ const FilterSearch = () => {
       name: "Subcategoría",
       options: ["Subcategory 1", "Subcategory 2", "Subcategory 3"],
     },
-    { name: "Estado", options: ["Active", "Inactive", "Pending"] },
+    { name: "Estado", options: ["EJECUCIÓN", "REEVALUACION", "PARALIZADO"] },
     { name: "Año", options: ["2022", "2023", "2024"] },
   ];
 
@@ -41,6 +70,10 @@ const FilterSearch = () => {
                 labelId={`${filter.name}-label`}
                 id={`${filter.name}-select`}
                 label={filter.name}
+                value={filter.name === "Estado" ? estadoFilter : ""}
+                onChange={
+                  filter.name === "Estado" ? handleEstadoChange : () => {}
+                }
                 defaultValue=""
               >
                 <MenuItem value="">

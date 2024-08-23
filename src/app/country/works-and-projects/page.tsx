@@ -26,6 +26,8 @@ const Map = dynamic(() => import("../../../components/Country/Map/Map"), {
 
 const WorksAndProjects = () => {
   const projects: IProject[] = useProjects();
+  const [filteredProjects, setFilteredProjects] =
+    useState<IProject[]>(projects);
 
   const theme = useTheme();
   const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
@@ -53,7 +55,10 @@ const WorksAndProjects = () => {
           </Typography>
         </Container>
       </Box>
-      <FilterSearch />
+      <FilterSearch
+        projects={projects}
+        setFilteredProjects={setFilteredProjects}
+      />
       <Box
         display="flex"
         justifyContent="center"
@@ -61,7 +66,7 @@ const WorksAndProjects = () => {
         mx={{ xs: 4, lg: 20 }}
         my={10}
       >
-        <Map projects={projects} />
+        <Map projects={filteredProjects} />
       </Box>
       {isLgUp && (
         <Box
@@ -71,7 +76,7 @@ const WorksAndProjects = () => {
           mx={20}
           my={10}
         >
-          <ProjectsTable projects={projects} />
+          <ProjectsTable projects={filteredProjects} />
         </Box>
       )}
     </Box>
