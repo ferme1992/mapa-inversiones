@@ -2,6 +2,12 @@
 
 El objetivo de este proyecto es modernizar la interfaz de usuario (UI) de la plataforma MapaInversiones utilizando herramientas contemporáneas como Next.js y Material-UI. Este esfuerzo de modernización pretende mejorar la experiencia de usuario y la accesibilidad, haciendo que los datos de inversión pública sean más accesibles y comprensibles para los ciudadanos.
 
+## Recursos Adicionales
+
+- **Documento Técnico**: [Enlace al documento](https://docs.google.com/document/d/19HM9LdMG8TLljMBBd0ocMZH7H_u2IEIdMX0_xPYwoJo/edit?usp=sharing)
+- **Wireframe de Figma**: [Enlace a Figma](añadir enlace aquí)
+- **Presentation**: [Enlace a la presentación] (añadir enlace aquí)
+
 ## Guía de Instalación
 
 ### 1. Configuración del Entorno
