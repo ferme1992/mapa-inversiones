@@ -1,6 +1,25 @@
-import { Box, Typography, TextField, Button, Chip, Grid } from "@mui/material";
+"use client";
+
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Chip,
+  Grid,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 
 function Newsletter() {
+  const theme = useTheme();
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
+
+  // Render the component only if the screen size is lg or larger
+  if (!isLgUp) {
+    return null;
+  }
+
   return (
     <Box px={20} py={8} bgcolor="#f0f8ff">
       <Grid container spacing={4} alignItems="center">

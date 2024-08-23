@@ -1,8 +1,26 @@
+"use client";
+
 import React from "react";
-import { Box, Grid, Typography, Button, Paper } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  Button,
+  Paper,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import Image from "next/image";
 
 const Publications = () => {
+  const theme = useTheme();
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
+
+  // Render the component only if the screen size is lg or larger
+  if (!isLgUp) {
+    return null;
+  }
+
   return (
     <Box px={20} py={8} bgcolor="#EFF4F7">
       <Grid container spacing={8} alignItems="center">

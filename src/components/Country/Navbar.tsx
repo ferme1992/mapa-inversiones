@@ -90,7 +90,7 @@ function NavBar() {
     <AppBar
       position="static"
       color="default"
-      sx={{ minHeight: 175, display: "flex", justifyContent: "center" }}
+      sx={{ minHeight: 151, display: "flex", justifyContent: "center" }}
     >
       <Toolbar
         sx={{

@@ -13,7 +13,7 @@ const CountryFooter = () => {
       bgcolor="#0B3866"
       color="white"
       minHeight={193}
-      px={20}
+      px={{ xs: 8, md: 20 }}
     >
       <Box width={165} height={67} position="relative">
         <Image

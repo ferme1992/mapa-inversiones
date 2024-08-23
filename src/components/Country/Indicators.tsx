@@ -2,17 +2,17 @@ import React from "react";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 
 const indicators = [
-  { label: "APROBADOS", value: 254 },
-  { label: "EJECUTADOS", value: 1200 },
-  { label: "PARALIZADOS", value: 620 },
-  { label: "REEVALUACIÓN", value: 120 },
+  { label: "APROBADOS", value: 254, color: "#00b3e6" },
+  { label: "EN EJECUCIÓN", value: 1200, color: "#00cc66" },
+  { label: "PARALIZADOS", value: 620, color: "#ff3300" },
+  { label: "EN REEVALUACIÓN", value: 120, color: "#ff1a1a" },
 ];
 
 const Indicators = () => {
   return (
-    <Box py={7} px={20}>
-      <Typography variant="h4" gutterBottom>
-        Indicadores
+    <Box py={7} px={{ xs: 8, md: 20 }}>
+      <Typography fontSize={28} fontWeight={700} gutterBottom>
+        Indicadores de proyectos
       </Typography>
       <Grid container spacing={2}>
         {indicators.map((indicator, index) => (
@@ -22,21 +22,31 @@ const Indicators = () => {
               sx={{
                 p: 2,
                 textAlign: "center",
-                borderTop: "4px solid #0a4d68",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
               }}
             >
-              <Typography
-                variant="subtitle2"
+              <Box
                 sx={{
-                  bgcolor: "#e0e0e0",
-                  p: 0.5,
-                  borderRadius: 1,
-                  display: "inline-block",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                   mb: 1,
                 }}
               >
-                {indicator.label}
-              </Typography>
+                <Box
+                  sx={{
+                    width: 10,
+                    height: 10,
+                    bgcolor: indicator.color,
+                    borderRadius: "50%",
+                    mr: 2,
+                  }}
+                />
+                <Typography variant="subtitle2">{indicator.label}</Typography>
+              </Box>
               <Typography variant="h4">
                 {indicator.value.toLocaleString()}
               </Typography>

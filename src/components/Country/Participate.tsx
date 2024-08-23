@@ -1,5 +1,13 @@
 import React from "react";
-import { Card, CardContent, Typography, Grid, Box } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+  Box,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 
 const ParticipateSections = [
   {
@@ -20,6 +28,13 @@ const ParticipateSections = [
 ];
 
 const Participate = () => {
+  const theme = useTheme();
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
+
+  // Render the component only if the screen size is lg or larger
+  if (!isLgUp) {
+    return null;
+  }
   return (
     <Box mx={20} py={8}>
       <Typography variant="h5" component="h2" gutterBottom>

@@ -31,7 +31,7 @@ const CommunityEvents = () => {
   ];
 
   return (
-    <Box p={3} mx={17}>
+    <Box p={3} mx={{ xs: 8, md: 17 }}>
       <Typography variant="h4" gutterBottom>
         Comunidad
       </Typography>

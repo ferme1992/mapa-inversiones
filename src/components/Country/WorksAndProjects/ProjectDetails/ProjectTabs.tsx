@@ -16,7 +16,7 @@ const ProjectTabs: FC<IProjectTabs> = ({ project }) => {
   };
 
   return (
-    <Box py={4} sx={{ bgcolor: "#f1f1f1" }}>
+    <Box py={4} my={4} sx={{ bgcolor: "#f1f1f1" }}>
       <Box justifyContent="center" px={4}>
         <Tabs
           value={value}

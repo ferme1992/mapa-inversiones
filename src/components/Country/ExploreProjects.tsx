@@ -1,10 +1,11 @@
 import React from "react";
-import { Box, Grid, Typography, Button } from "@mui/material";
+import { Box, Grid, Typography, Button, Link } from "@mui/material";
 import Image from "next/image";
+import NextLink from "next/link";
 
 const ExploreProjects = () => {
   return (
-    <Box my={4}>
+    <Box my={4} mx={{ xs: 8, md: 0 }}>
       <Grid container spacing={4} alignItems="center">
         <Grid item xs={12} md={6}>
           <Box position="relative" height={400}>
@@ -27,15 +28,18 @@ const ExploreProjects = () => {
             mapa te ofrece una visión detallada y accesible de cómo se están
             utilizando los recursos públicos.
           </Typography>
-          <Button
-            variant="contained"
-            sx={{
-              bgcolor: "#6c757d",
-              "&:hover": { bgcolor: "#5a6268" },
-            }}
-          >
-            Explorar ahora
-          </Button>
+
+          <Link href="/country/works-and-projects" component={NextLink}>
+            <Button
+              variant="contained"
+              sx={{
+                bgcolor: "#6c757d",
+                "&:hover": { bgcolor: "#5a6268" },
+              }}
+            >
+              Explorar ahora
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </Box>

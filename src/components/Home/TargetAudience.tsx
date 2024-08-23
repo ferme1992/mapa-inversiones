@@ -49,7 +49,7 @@ function TargetAudience() {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      px={20}
+      px={{ xs: 8, md: 20 }}
       py={8}
       bgcolor="#EFF4F7"
     >

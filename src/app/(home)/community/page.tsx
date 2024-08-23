@@ -17,7 +17,7 @@ export default function Community() {
         fontSize={40}
         fontWeight="bold"
         bgcolor={"#234F6A"}
-        px={20}
+        px={{ xs: 8, md: 20 }}
       >
         <Typography fontWeight={700} fontSize="40px">
           Comunidad
@@ -28,8 +28,8 @@ export default function Community() {
       </Stack>
       <Events />
       <Publications />
-      <Forum />
       <Courses />
+      <Forum />
       <Newsletter />
     </Box>
   );

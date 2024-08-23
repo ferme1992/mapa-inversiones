@@ -36,7 +36,7 @@ function Events() {
   ];
 
   return (
-    <Box px={20} py={8}>
+    <Box px={{ xs: 8, md: 20 }} py={8}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography variant="h4" pb={2} mb={2} gutterBottom>
           Charlas

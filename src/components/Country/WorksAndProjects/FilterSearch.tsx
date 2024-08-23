@@ -22,7 +22,7 @@ const FilterSearch = () => {
   ];
 
   return (
-    <Box px={20} py={8}>
+    <Box px={{ xs: 8, md: 20 }} py={8}>
       <Typography variant="h5" gutterBottom>
         Búsqueda de proyectos
       </Typography>

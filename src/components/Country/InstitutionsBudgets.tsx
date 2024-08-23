@@ -6,6 +6,8 @@ import {
   Grid,
   Typography,
   IconButton,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import Image from "next/image";
@@ -17,8 +19,16 @@ const institutions = [
 ];
 
 const InstitutionBudgets = () => {
+  const theme = useTheme();
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
+
+  // Render the component only if the screen size is lg or larger
+  if (!isLgUp) {
+    return null;
+  }
+
   return (
-    <Box py={7} px={20}>
+    <Box py={7} px={{ xs: 8, md: 20 }}>
       <Box
         display="flex"
         justifyContent="space-between"

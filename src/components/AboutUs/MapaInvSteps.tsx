@@ -4,7 +4,7 @@ import { Box, Typography, Button, Grid } from "@mui/material";
 const MapaInversionesSteps = () => {
   return (
     <Box sx={{ bgcolor: "#EFF4F7", py: 7 }}>
-      <Grid container spacing={4} alignItems="center" px={20}>
+      <Grid container spacing={4} alignItems="center" px={{ xs: 8, md: 20 }}>
         <Grid item xs={12} md={6}>
           <Typography variant="h4" gutterBottom>
             10 Pasos para implementar MapaInversiones
