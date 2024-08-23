@@ -10,6 +10,7 @@ import {
   Select,
   MenuItem,
   SelectChangeEvent,
+  Button,
 } from "@mui/material";
 import { IProject } from "@/types/Project";
 
@@ -52,6 +53,17 @@ const FilterSearch: FC<FilterSearchProps> = ({
 
   return (
     <Box px={{ xs: 8, md: 20 }} py={8}>
+      <Button
+        variant="outlined"
+        sx={{
+          textTransform: "none",
+          borderRadius: 2,
+          padding: "8px 16px",
+          my: 4,
+        }}
+      >
+        Utilizar mi ubicación
+      </Button>
       <Typography variant="h5" gutterBottom>
         Búsqueda de proyectos
       </Typography>
