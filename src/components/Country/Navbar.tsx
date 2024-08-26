@@ -100,7 +100,7 @@ function NavBar() {
         }}
       >
         <Box display="flex" flexGrow={1}>
-          <Link href="/" component={NextLink}>
+          <Link href="/country" component={NextLink}>
             <img src="/assets/logo-gobierno.svg" alt="Mapa Inversiones" />
           </Link>
         </Box>

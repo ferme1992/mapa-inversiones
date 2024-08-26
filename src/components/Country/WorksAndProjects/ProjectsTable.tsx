@@ -100,7 +100,7 @@ const ProjectTable: FC<ProjectTableProps> = ({ projects }) => {
   };
 
   return (
-    <Paper>
+    <Paper sx={{ minWidth: "100%" }}>
       <Grid
         container
         alignItems="center"

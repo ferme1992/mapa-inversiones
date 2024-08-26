@@ -19,10 +19,10 @@ interface MapComponentProps {
 export default function MapComponent({ projects }: MapComponentProps) {
   const [viewport, setViewport] = useState({
     width: "100%",
-    height: "100%",
+    height: "90%",
     latitude: 18.7357,
     longitude: -70.1627,
-    zoom: 7,
+    zoom: 6,
   });
   const [selectedLocation, setSelectedLocation] = useState<any>(null);
   const mapRef = useRef<MapRef | null>(null);

@@ -43,10 +43,10 @@ function NavBar() {
         <ListItemText primary="Nosotros" />
       </ListItem>
       <ListItem>
-        <ListItemText primary="Comparación Internacional" />
+        <ListItem component={NextLink} href="/" />
       </ListItem>
       <ListItem>
-        <ListItemText primary="Datos Abiertos" />
+        <ListItem component={NextLink} href="/" />
       </ListItem>
       <ListItem component={NextLink} href="/community">
         <ListItemText primary="Comunidad" />
@@ -106,12 +106,12 @@ function NavBar() {
             <Link href="/about-us" component={NextLink}>
               <Typography>Nosotros</Typography>
             </Link>
-            <Button color="inherit">
+            <Link href="/" component={NextLink}>
               <Typography>Comparación Internacional</Typography>
-            </Button>
-            <Button color="inherit">
+            </Link>
+            <Link href="/" component={NextLink}>
               <Typography>Datos Abiertos</Typography>
-            </Button>
+            </Link>
             <Link href="/community" component={NextLink}>
               <Typography>Comunidad</Typography>
             </Link>
