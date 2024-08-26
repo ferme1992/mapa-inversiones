@@ -8,7 +8,13 @@ import { IProject } from "@/types/Project";
 import { useProjects } from "../../ProjectContext";
 import { useMemo } from "react";
 
-export default function Project({ params }: { params: { slug: string } }) {
+interface ProjectProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function Project({ params }: Readonly<ProjectProps>) {
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -27,7 +33,11 @@ export default function Project({ params }: { params: { slug: string } }) {
   );
 
   if (projects.length === 0) {
-    return (<Box><CircularProgress /></Box>);
+    return (
+      <Box>
+        <CircularProgress />
+      </Box>
+    );
   }
 
   return (

@@ -54,7 +54,7 @@ function Events() {
       </Typography>
       <Grid container spacing={3}>
         {events.map((event, index) => (
-          <Grid item xs={12} md={4} key={index}>
+          <Grid item xs={12} md={4} key={`${index + event.title}`}>
             <Paper
               elevation={0}
               sx={{ p: 2, height: "100%", border: "1px solid #e0e0e0" }}

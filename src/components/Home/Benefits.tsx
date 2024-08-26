@@ -1,7 +1,14 @@
 "use client";
 
-import { Box, Typography, Grid, Paper, Stack, useTheme } from "@mui/material";
-import { useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Grid,
+  Paper,
+  Stack,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 
 const benefits = [
   {
@@ -43,7 +50,7 @@ function Benefits() {
         </Typography>
         <Grid container spacing={0}>
           {benefits.map((benefit, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index}>
+            <Grid item xs={12} sm={6} md={3} key={`${index + benefit.title}`}>
               <Paper
                 elevation={0}
                 sx={{

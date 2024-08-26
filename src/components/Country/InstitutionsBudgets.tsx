@@ -47,7 +47,7 @@ const InstitutionBudgets = () => {
       </Box>
       <Grid container spacing={2}>
         {institutions.map((institution, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
+          <Grid item xs={12} sm={6} md={4} key={`${index + institution.name}`}>
             <Card variant="outlined">
               <CardContent sx={{ display: "flex", alignItems: "center" }}>
                 <Box mr={2}>

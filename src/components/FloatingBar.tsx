@@ -1,13 +1,11 @@
 "use client";
 
 import React from "react";
-import { styled } from "@mui/material/styles";
-import { IconButton, useMediaQuery } from "@mui/material";
+import { IconButton, useMediaQuery, styled, useTheme } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/FacebookOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import AccessibilityIcon from "@mui/icons-material/SettingsAccessibilityOutlined";
-import { useTheme } from "@mui/material/styles";
 
 const FloatingBarContainer = styled("div")(({ theme }) => ({
   position: "fixed",

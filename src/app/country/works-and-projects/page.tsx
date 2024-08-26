@@ -15,7 +15,7 @@ import ProjectsTable from "@/components/Country/WorksAndProjects/ProjectsTable";
 import { IProject } from "@/types/Project";
 import { useProjects } from "../ProjectContext";
 
-const Map = dynamic(() => import("../../../components/Country/Map/Map"), {
+const MapComponent = dynamic(() => import("../../../components/Country/Map/Map"), {
   loading: () => (
     <Box>
       <CircularProgress />
@@ -66,7 +66,7 @@ const WorksAndProjects = () => {
         mx={{ xs: 4, lg: 20 }}
         my={10}
       >
-        <Map projects={filteredProjects} />
+        <MapComponent projects={filteredProjects} />
       </Box>
       {isLgUp && (
         <Box

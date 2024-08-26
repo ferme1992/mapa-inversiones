@@ -64,7 +64,7 @@ const ProjectTable: FC<ProjectTableProps> = ({ projects }) => {
             </style>
           </head>
           <body>
-            ${document.getElementById("table-to-print")?.innerHTML || ""}
+            ${document.getElementById("table-to-print")?.innerHTML ?? ""}
           </body>
         </html>
       `;

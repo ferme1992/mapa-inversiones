@@ -16,7 +16,7 @@ const Indicators = () => {
       </Typography>
       <Grid container spacing={2}>
         {indicators.map((indicator, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid item xs={12} sm={6} md={3} key={`${index + indicator.label}`}>
             <Paper
               elevation={3}
               sx={{

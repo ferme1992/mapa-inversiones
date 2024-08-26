@@ -100,7 +100,7 @@ const TestimonialSlider: FC = () => {
       >
         {currentTestimonials.map((testimonial, index) => (
           <Box
-            key={index}
+            key={`${index + testimonial.name}`}
             display="flex"
             flexDirection="column"
             alignItems="center"

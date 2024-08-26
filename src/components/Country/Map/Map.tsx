@@ -16,7 +16,9 @@ interface MapComponentProps {
   projects: IProject[];
 }
 
-export default function MapComponent({ projects }: MapComponentProps) {
+export default function MapComponent({
+  projects,
+}: Readonly<MapComponentProps>) {
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "90%",

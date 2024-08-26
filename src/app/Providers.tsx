@@ -4,7 +4,11 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import theme from "../styles/theme";
 
-export default function Providers({ children }: { children: ReactNode }) {
+interface ProvidersProps {
+  children: ReactNode;
+}
+
+export default function Providers({ children }: Readonly<ProvidersProps>) {
   return (
     <AppRouterCacheProvider>
       <ThemeProvider theme={theme}>

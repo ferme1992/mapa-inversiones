@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC } from "react";
-import { Box, Typography, Tab, Tabs, Grid } from "@mui/material";
+import { Box, Typography, Tab, Tabs } from "@mui/material";
 import { IProject } from "@/types/Project";
 
 interface IProjectTabs {

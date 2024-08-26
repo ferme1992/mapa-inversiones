@@ -45,7 +45,7 @@ const RelatedProjects: FC<IRelatedProjectsProps> = ({
             .slice(currentIndex, currentIndex + itemsToShow)
             .map((project, index) => (
               <ProjectCard
-                key={index}
+                key={`${index + project.IdProyecto}`}
                 image="/assets/project-photo-example.png"
                 cost={project.CostoEstimadoProyecto}
                 title={project.NombreProyecto}

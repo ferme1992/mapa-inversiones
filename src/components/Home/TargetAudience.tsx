@@ -61,7 +61,7 @@ function TargetAudience() {
           <List>
             {audiences.map((item, index) => (
               <ListItem
-                key={index}
+                key={`${index + item.title}`}
                 alignItems="flex-start"
                 sx={{ py: 1, borderBottom: "1px" }}
               >

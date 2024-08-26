@@ -18,7 +18,7 @@ const MapaInvCountries = () => {
         </Typography>
         <Grid container spacing={2}>
           {countries.map((country, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid item xs={12} sm={6} md={4} key={`${index + country.name}`}>
               <Card variant="outlined">
                 <CardContent>
                   <Grid container alignItems="center" spacing={1}>

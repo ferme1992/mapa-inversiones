@@ -37,7 +37,14 @@ const CommunityEvents = () => {
       </Typography>
       <Grid container spacing={3}>
         {events.map((event, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={`${index + event.title}`}
+            sx={{ display: "flex" }}
+          >
             <EventCard event={event} />
           </Grid>
         ))}

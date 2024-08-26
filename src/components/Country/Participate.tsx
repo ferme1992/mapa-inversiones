@@ -47,7 +47,7 @@ const Participate = () => {
       </Typography>
       <Grid container spacing={2}>
         {ParticipateSections.map((item, index) => (
-          <Grid item xs={12} sm={4} key={index}>
+          <Grid item xs={12} sm={4} key={`${index + item.title}`}>
             <Card sx={{ backgroundColor: "#D7E0E5" }}>
               <CardContent>
                 <Typography variant="h6" component="h3" gutterBottom>

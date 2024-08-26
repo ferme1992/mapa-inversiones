@@ -53,7 +53,14 @@ function Courses() {
       </Typography>
       <Grid container spacing={3} mt={4}>
         {courses.map((course, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={`${index + course.title}`}
+            sx={{ display: "flex" }}
+          >
             <EventCard event={course} />
           </Grid>
         ))}
